@@ -1,8 +1,8 @@
 $(document).ready(function () {
     var options = [
         {
-            question: "Pupusas, handmade thick stuffed corn tortillas, are a traditional dish from what country?", 
-            choice: ["Ethiopia", "El Salvadore", "Peru", "Guatamala"],
+            question: "What is the capture device used to contain Pokemon?", 
+            choice: ["Pokebox", "Pokeball", "Pokesphere", "Pokenet"],
             answer: 1
          },
          {
@@ -11,33 +11,33 @@ $(document).ready(function () {
             answer: 0
          }, 
          {
-            question: "Kopi luwak is a very expensive type of what?", 
-            choice: ["Spice", "Caviar", "Coffee", "Rice variety" ],
+            question: "What is the name of the protagonist in 'How I Met Your Mother'?", 
+            choice: ["Ned Mosby", "Ted Crosby", "Ted Mosby", "Vanilla Ice" ],
             answer: 2
         }, 
         {
-            question: "Which is not an ingredient in a Harvey Wallbanger cocktail?", 
-            choice: ["Orange Juice", "Vodka", "Sour Mix", "Galliano" ],
+            question: "Which fictional creature has the title of 'King Of All Monsters'?", 
+            choice: ["Rodan", "Chidorah", "Godzilla", "Destroyah"],
             answer: 2
         }, 
         {
-            question: "How many items are there in a Bakers' Dozen?", 
-            choice: ["12", "6", "24", "13" ],
+            question: "How many Infinity Stones are there in the Marvel Universe?", 
+            choice: ["12", "5", "9", "6"],
             answer: 3
         }, 
         {
-            question: "What is the most widely eaten fish in the world?", 
-            choice: ["Tilapia", "Herring", "Sardine", "Tuna" ],
+            question: "In the show,'Family Guy', what is the name of the Griffin's dog?", 
+            choice: ["Scooby", "Brian", "Bryan", "Marmaduke" ],
             answer: 1
         }, 
         {
-            question: "Which fruit does not ripen once it has been picked?", 
-            choice: ["Banana", "Lemon", "Mango", "Apple" ],
+            question: "What is Goku's race?", 
+            choice: ["Namekian", "Saiyan", "Human", "Ape"],
             answer: 1
         }, 
         {
-            question: "Which fruit contains the most protein per 100 calories?", 
-            choice: ["Guava", "Avocado", "Banana", "Blackberries" ],
+            question: "What element can Magneto control?", 
+            choice: ["Metal", "Fire", "Water", "Air"],
             answer: 0
         }];
     
@@ -138,7 +138,7 @@ $(document).ready(function () {
         } else {
             runTimer();
             displayQuestion();
-        }
+          }
         }, 3000);
     }
     
@@ -151,7 +151,5 @@ $(document).ready(function () {
         }
         runTimer();
         displayQuestion();
-    
     })
-    
     })
