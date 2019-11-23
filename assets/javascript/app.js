@@ -19,26 +19,39 @@ $(document).ready(function(){
     // questions options and answers data
     questions: {
       q1: 'Cairo is the capital of which country?',
-      q2: 'Zagreb is the capital of which country?',
+      q2: 'what is the capital of India?',
       q3: 'Tbilisi is the capital of which country?',
-      q4: 'Santiago is the capital of which country?',
+      q4: 'What is the capital of the United Kingdom?',
       q5: 'Tehran is the capital of which country?',
-     
+      q6: 'What is the capital of China?',
+      q7: 'Santiago is the capital of which country?',
+      q8: 'What is the capital of Argentina?',
+      q9: 'Zagreb is the capital of which country?',
+      q10: 'What is te capital of South Sudan?',
     },
     options: {
       q1: ['Georgia', 'Haiti', 'Iceland', 'Egypt'],
-      q2: ['Croatia', 'Costa Rica', 'Estonia', 'Fiji'],
+      q2: ['Calcutta', 'Bombay', 'New Delhi', 'Madras'],
       q3: ['Georgia', 'Gabon', 'Guatemala', 'Indonesia'],
-      q4: ['Congo', 'Croatia', 'Cuba', 'Chile'],
+      q4: ['Birmingham', 'Glasgow', 'London', 'Oxford'],
       q5: ['Iraq','Iran','Kenya','Kosovo'],
-    
+      q6: ['Shanghai', 'Tokyo', 'Hong Kong', 'Beijing'],
+      q7: ['Congo', 'Croatia', 'Cuba', 'Chile'],
+      q8: ['Buenos Aires','La Paza','Montevideo', 'Santiago'],
+      q9: ['Croatia', 'Costa Rica', 'Estonia', 'Fiji'],
+      q10: ['Mogadishu', 'Khartoum', 'Juba', 'Asmara'],
     },
     answers: {
       q1: 'Egypt',
-      q2: 'Croatia',
+      q2: 'New Delhi',
       q3: 'Georgia',
-      q4: 'Chile',
+      q4: 'London',
       q5: 'Iran',
+      q6: 'Beijing',
+      q7: 'Chile',
+      q8: 'Buenos Aires',
+      q9: 'Croatia',
+      q10: 'Juba',
       
     },
     // trivia methods
@@ -180,3 +193,7 @@ $(document).ready(function(){
     }
   
   }
+
+function newFunction() {
+  return this._q5;
+}
