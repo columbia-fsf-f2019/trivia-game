@@ -29,9 +29,13 @@ var intervalId;
 var correctNum;
 var wrongNum;
 var i = 0;
+$("button.start").on("click", function() {
+  clear();
+  render();
+});
 function render() {
   if (i < questions.length) {
-    function run() {
+    function timer() {
       clearInterval(intervalId);
       intervalId = setInterval(decrement, 1000);
     }
@@ -41,10 +45,15 @@ function render() {
       time--;
       if (time === 0) {
         clearInterval(intervalId);
+        clear();
+        $(".reaction").text("TIME IS UP!");
+        setTimeout(clear, 5000);
+        setTimeout(render, 5000);
         time = 20;
+        i++;
       }
     }
-    run();
+    timer();
     var stem = $("<h3>").text(questions[i].question);
     $(".questions").append(stem);
     var choices = [];
@@ -77,29 +86,27 @@ function render() {
     $("button.choice").on("click", function() {
       var choice = $(this).attr("type");
       if (choice === questions[i].correctAsw) {
+        clearInterval(intervalId);
         clear();
         $(".reaction").text("YOU ARE CORRECT!");
-        setTimeout;
         correctNum++;
+        time = 20;
         i++;
+        setTimeout(clear, 5000);
         setTimeout(render, 5000);
       } else {
+        clearInterval(intervalId);
         clear();
         $(".reaction").text("YOU ARE WRONG!");
         wrongNum++;
+        time = 20;
         i++;
+        setTimeout(clear, 5000);
         setTimeout(render, 5000);
       }
     });
-    if (time === 0) {
-      clear();
-      $(".reaction").text("TIME IS UP!");
-      setTimeout(render, 5000);
-    }
   }
 }
-render();
 function clear() {
   $("div").html("");
-  time = 20;
 }
