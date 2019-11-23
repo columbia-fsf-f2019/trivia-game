@@ -79,7 +79,7 @@ $(document).ready(function () {
             unanswerCount++;
             stop();
             $("#answers").html("<p>Time is up! The correct answer is: " + pick.choice[pick.answer] + "</p>");
-            hidepicture();
+            results();
         }	
     }
     
@@ -107,27 +107,26 @@ $(document).ready(function () {
             correctCount++;
             userGuess="";
             $("#answers").html("<p>Correct!</p>");
-            hidepicture();
+            results();
         } else {
             stop();
             wrongCount++;
             userGuess="";
             $("#answers").html("<p>Wrong! The correct answer is: " + pick.choice[pick.answer] + "</p>");
-            hidepicture();
+            results();
         }
     })
     }
     
-    function hidepicture () {
-        $("#answers").append("<img src=" + pick.photo + ">");
+    function results () {
         newArray.push(pick);
         options.splice(index,1);
-        var hidpic = setTimeout(function() {
+        var timerResult = setTimeout(function() {
             $("#answers").empty();
             timer= 20;
         if ((wrongCount + correctCount + unanswerCount) === qCount) {
             $("#questions").empty();
-            $("#questions").html("<h3>Game Over!  Here's how you did: </h3>");
+            $("#questions").html("<h3>Game Over!  Here's Your Results: </h3>");
             $("#answers").append("<h4> Correct: " + correctCount + "</h4>" );
             $("#answers").append("<h4> Incorrect: " + wrongCount + "</h4>" );
             $("#answers").append("<h4> Unanswered: " + unanswerCount + "</h4>" );
