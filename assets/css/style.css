@@ -1,0 +1,27 @@
+
+
+h1{
+    padding: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-display: bold;
+    color: grey;
+}
+
+
+h2{
+    padding: 15px;
+    text-align: center;
+    color:grey;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.text-muted{
+	color: blue;
+}
+.last-seconds{
+  color: red;
+}
+.option{
+  margin: 15px;
+}
