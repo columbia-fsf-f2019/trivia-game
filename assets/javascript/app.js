@@ -114,6 +114,14 @@ function render() {
   if (i === questions.length) {
     clearInterval(intervalId);
     clear();
+    var words = $("<h3>").text("All Done! Here is how you did:");
+    $(".reaction").append(words);
+    var correctRecord = $("<h4>").text(`Correct Answers: ${correctNum}`);
+    $(".reaction").append(correctRecord);
+    var wrongRecord = $("<h4>").text(`Wrong Answers: ${wrongNum}`);
+    $(".reaction").append(wrongRecord);
+    var noRecord = $("<h4>").text(`Unanswered: ${noNum}`);
+    $(".reaction").append(noRecord);
     var rsButton = $("<button>")
       .addClass("restart")
       .text("RESTART");
