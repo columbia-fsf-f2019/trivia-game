@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/wood-2.png");
+  /* background-image: url("../images/tree_bark.png"); */
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+
+
+#question-box {
+  height: 500px;
+  width: 950px;
+  background-color: lightsteelblue;
+  margin-left: 250px;
+  text-align: center;
+  padding-top: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.7;
+  margin-top: 80px;
+
+}
+
+h1 {
+  font-stretch: extra-expanded;
+  font-size: xx-large; 
+ 
+}
+
+#one {
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+
+#six {
+  /* margin-left: 20px;
+  margin-bottom: 100px;
+  margin-top: 40px;  */
+  float:right;
+  margin-right:40px;
+  margin-top: 40px;
+  
+}
+
+#five {
+  float:right;
+  margin-right:40px;
+  margin-top: 40px
+}
+
+#four {
+  float:right;
+  margin-right:40px;
+  margin-top: 40px
+
+}
+
+#three {
+  float:right;
+  margin-right: 30px;
+  margin-top: 40px 
+
+}
+
+#two {
+  float:right;
+  margin-right: 20px;
+  margin-top: 40px;
+  clear: right;
+
+  /* #one {
+   
+    margin-left: 20px;
+
+  } */
+
+
+
+
+
+
+/* /* #one {
+  margin-left: 20px;
+  margin-bottom: 100px;
+  margin-top: 40px; */
+
+}
+
+
+
+
+
+
+
