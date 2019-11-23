@@ -26,13 +26,17 @@ var questions = [
 ];
 var time = 20;
 var intervalId;
-var correctNum;
-var wrongNum;
+var correctNum = 0;
+var wrongNum = 0;
+var noNum = 0;
 var i = 0;
 $("button.start").on("click", function() {
   clear();
   render();
 });
+function clear() {
+  $("div").html("");
+}
 function render() {
   if (i < questions.length) {
     function timer() {
@@ -49,6 +53,7 @@ function render() {
         $(".reaction").text("TIME IS UP!");
         setTimeout(clear, 5000);
         setTimeout(render, 5000);
+        noNum++;
         time = 20;
         i++;
       }
@@ -106,7 +111,21 @@ function render() {
       }
     });
   }
-}
-function clear() {
-  $("div").html("");
+  if (i === questions.length) {
+    clearInterval(intervalId);
+    clear();
+    var rsButton = $("<button>")
+      .addClass("restart")
+      .text("RESTART");
+    $(".rsButton").append(rsButton);
+    $("button.restart").on("click", function() {
+      i = 0;
+      time = 20;
+      correctNum = 0;
+      wrongNum = 0;
+      noNum = 0;
+      clear();
+      render();
+    });
+  }
 }
