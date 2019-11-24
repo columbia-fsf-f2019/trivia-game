@@ -1,0 +1,123 @@
+html {
+  height: 100%;
+}
+
+body {
+  background-image: url("../images/2_hornquarterview_black_rgb_0.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainBox {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(12, 12, 12, 0.7);
+    margin: 1.8em auto;
+    padding: 1.8em;
+    width: 65%;
+    height: 450px;
+  }
+#grammyHeader {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#startBTN,
+#playAgain {
+  font-size: 2.7em;
+  font-family: "Futura";
+}
+
+.triviaBox {
+  display: none;
+  width: 55%;
+  text-align: center;
+}
+
+#startBox {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+}
+
+
+
+.timerBox > p {
+    font-family: "Futura";
+  color: #ffffff;
+  
+  font-size: 1.1em;
+}
+
+
+.scoreBoardBox {
+    display: none;
+    text-align: center;
+  }
+  
+  .scoreBoardBox > p {
+    font-size: 2.35em;
+    color: #ffffff;
+    font-family: "Futura";
+   
+  }
+
+  
+.answerButtons {
+    color: white;
+  background-color: #000000;
+  
+  font-family: "Futura";
+}
+
+.answerBox {
+  display: none;
+  text-align: center;
+}
+
+h2 {
+    font-size: 3em;
+    color: #ffffff;
+    font-family: "Futura";
+    
+    padding: 15px;
+  }
+
+  
+#answer {
+    font-size: 1.4em;
+    font-family: "Futura";
+    color: #ffffff;
+  }
+  
+  #answerExplanation {
+    font-size: 1.2em;
+    color: #bbbbbb;
+    font-family: "Futura", serif;
+    
+  }
+
+#triviaQstn {
+    color: #f1ff33;
+  font-size: 2.2em;
+  font-family: "Futura";
+  
+  padding:15px;
+}
+
+
+
+
+
+#triviaQuestion {
+  
+  padding:15px;
+  color: #f1ff33;
+  font-family: "Futura";
+  font-size: 4em;
+}
+
