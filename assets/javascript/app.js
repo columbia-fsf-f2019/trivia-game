@@ -1,5 +1,6 @@
 // Questions object
 // alert("this is a test!")
+// $("#start").on("click", Function()(console.log("I'm clicked!")));
 
 var questions = [
   {
@@ -106,8 +107,9 @@ var questions = [
   }
 ];
 
-// setup for interval timer beginning with variables
+// setup for interval timer beginning with some global variables
 
+var box = $("#question-box");
 var countdown;
 
 var gameOutcome = {
@@ -128,14 +130,14 @@ var gameOutcome = {
     countdown = setInterval(gameOutcome.clock, 1000);
 
     $("#question-box").prepend(
-      "<h3>Time Remaining: <span id='counter'>180</span>Seconds</h3>"
+      "<h3>Time Remaining: <span id='counter'>12</span> Seconds</h3>"
     );
     $("#start").remove();
 
     for (var i = 0; i < questions.length; i++) {
-      card.append("<h2>" + questions[i].question + "</h2>");
+      box.append("<h4>" + questions[i].question + "</h4>");
       for (var j = 0; j < questions[i].choices.length; j++) {
-        card.append(
+        box.append(
           "<input type='radio' name='question-" +
             i +
             "' value='" +
@@ -145,11 +147,11 @@ var gameOutcome = {
         );
       }
     }
-    card.append("<button id='done'>Done</button>");
+    box.append("<start id='done'>Done</start>");
   },
 
   done: function() {
-    var inputs = card.children("input:checked");
+    var inputs = box.children("input:checked");
     for (var i = 0; i < inputs.length; i++) {
       if ($(inputs[i]).val() === questions[i].answer) {
         gameOutcome.correct++;
@@ -162,11 +164,12 @@ var gameOutcome = {
 
   result: function() {
     clearInterval(countdown);
-    $("#question-box h2").remove();
+    $("#question-box h4").remove();
 
-    card.html("<h2>Done!</h2>");
-    card.append("<h3>Correct Answers: " + this.correct + "</h3>");
-    card.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
+    box.html("<h1>Done!</h1>");
+    box.append("<h2>Correct Answers: " + this.correct + "</h2>");
+    box.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
+    box.append("<h2>Unanswered Questions: " + this.incorrect + "</h2>");
   }
 };
 
