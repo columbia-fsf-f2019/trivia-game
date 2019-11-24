@@ -1,4 +1,3 @@
-
 // alert("this is a test!")
 
 // for the record, I researched and made up all these questions!! Wine is a passion, loads of fun!
@@ -117,9 +116,10 @@ var countdown;
 var gameOutcome = {
   correct: 0,
   incorrect: 0,
+  unasnwered: 0,
   interval: 180,
 
-//   this function decrements interval starting from 180 seconds
+  //   this function decrements interval starting from 180 seconds
 
   clock: function() {
     gameOutcome.interval--;
@@ -157,7 +157,7 @@ var gameOutcome = {
     box.append("<start id='done'>Done</start>");
   },
 
-//   below is the game logic if certain conditions are met - or - else
+  //   below is the game logic if certain conditions are met - or - else
 
   done: function() {
     var inputs = box.children("input:checked");
