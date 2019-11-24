@@ -49,7 +49,7 @@ var triviaQuestions = [{
 ]
 var i = 0;
 var triviaQuestion = triviaQuestions[i];
-var time = 10;
+var time = 30;
 var timer = setInterval(function gameTimer() {
     time -= 1;
     $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
@@ -71,7 +71,7 @@ function playGame() {
         if (correctQuestions <= 6) {
             var failQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=failed";
             $.ajax(failQueryURL).then(function (response) {
-                var failImageUrl = response.data.image_original_url;
+                var failImageUrl = response.data.fixed_width_small_url;
                 var failImage = $("<img>");
                 failImage.attr("src", failImageUrl);
                 failImage.attr("alt", "failed trivia image");
@@ -80,7 +80,7 @@ function playGame() {
         } else {
             var congratsQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=congrats";
             $.ajax(congratsQueryURL).then(function (response) {
-                var congratsImageUrl = response.data.image_original_url;
+                var congratsImageUrl = response.data.fixed_width_small_url;
                 var congratsImage = $("<img>");
                 congratsImage.attr("src", congratsImageUrl);
                 congratsImage.attr("alt", "congrats trivia image");
@@ -95,7 +95,8 @@ function playGame() {
                     $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
                     var correctQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=happydance";
                     $.ajax(correctQueryURL).then(function (response) {
-                        var correctImageUrl = response.data.fixed_height_small_url;
+                        console.log(response);
+                        var correctImageUrl = response.data.fixed_width_small_url;
                         var correctImage = $("<img>");
                         correctImage.attr("src", correctImageUrl);
                         correctImage.attr("alt", "correct answer image");
@@ -111,7 +112,7 @@ function playGame() {
                     $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
                     var incorrectQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=disappointed";
                     $.ajax(incorrectQueryURL).then(function (response) {
-                        var incorrectImageUrl = response.data.fixed_height_small_url;
+                        var incorrectImageUrl = response.data.fixed_width_small_url;
                         var incorrectImage = $("<img>");
                         incorrectImage.attr("src", incorrectImageUrl);
                         incorrectImage.attr("alt", "incorrect answer image");
@@ -137,7 +138,7 @@ function nextQuestion() {
     $("#incorrect").css("display", "none");
     i += 1;
     triviaQuestion = triviaQuestions[i];
-    time = 10;
+    time = 30;
     $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
     setTimeout(function () {
         playGame();
