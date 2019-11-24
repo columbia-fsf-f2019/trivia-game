@@ -42,35 +42,32 @@ $("button.start").on("click", function() {
 function clear() {
   $("div").html("");
 }
+function timer() {
+  clearInterval(intervalId);
+  intervalId = setInterval(decrement, 1000);
+}
+function decrement() {
+  $(".timer").html(`<h3>Time Remaining ${time} Seconds</h3>`);
+  time--;
+  if (time === 0) {
+    clearInterval(intervalId);
+    clear();
+    var alert = $("<h3>").text("TIME IS UP!");
+    $(".reaction").append(alert);
+    var idx = questions[i].correctAsw;
+    var words = $("<h4>").text(`The Correct Answer was: ${questions[i][idx]}.`);
+    $(".reaction").append(words);
+    var img = $("<img>").attr("src", imgUrl[i]);
+    $(".reaction").append(img);
+    setTimeout(clear, 5000);
+    setTimeout(render, 5000);
+    noNum++;
+    time = 20;
+    i++;
+  }
+}
 function render() {
   if (i < questions.length) {
-    function timer() {
-      clearInterval(intervalId);
-      intervalId = setInterval(decrement, 1000);
-    }
-
-    function decrement() {
-      $(".timer").html(`<h2>Time Remaining ${time} Seconds</h2>`);
-      time--;
-      if (time === 0) {
-        clearInterval(intervalId);
-        clear();
-        var alert = $("<h3>").text("TIME IS UP!");
-        $(".reaction").append(alert);
-        var idx = questions[i].correctAsw;
-        var words = $("<h4>").text(
-          `The Correct Answer was: ${questions[i][idx]}.`
-        );
-        $(".reaction").append(words);
-        var img = $("<img>").attr("src", imgUrl[i]);
-        $(".reaction").append(img);
-        setTimeout(clear, 5000);
-        setTimeout(render, 5000);
-        noNum++;
-        time = 20;
-        i++;
-      }
-    }
     timer();
     var stem = $("<h3>").text(questions[i].question);
     $(".questions").append(stem);
@@ -78,7 +75,7 @@ function render() {
     for (var j = 0; j < choices.length; j++) {
       var choice = $("<button>")
         .addClass("choice")
-        .attr("type", "A")
+        .attr("type", choices[j])
         .text(questions[i][choices[j]]);
       var choiceLine = $("<h4>").append(choice);
       $(".questions").append(choiceLine);
@@ -88,7 +85,7 @@ function render() {
       if (choice === questions[i].correctAsw) {
         clearInterval(intervalId);
         clear();
-        var words = $("<h4>").text("CORRECT!");
+        var words = $("<h3>").text("CORRECT!");
         $(".reaction").append(words);
         var img = $("<img>").attr("src", imgUrl[i]);
         $(".reaction").append(img);
