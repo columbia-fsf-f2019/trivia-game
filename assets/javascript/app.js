@@ -7,14 +7,14 @@ var triviaQuestions = [{
         choices: ["A: 6", "B: 2", "C: 5", "D: 1"],
         answer: "A"
     }, {
-        question: "In what year was the first ever Wimbledon Championship held?",
-        choices: ["A: 1748", "B: 1756", "C: 1907", "D: 1877"],
+        question: 'In the TV Show "The Office" which employee did Michael Scott hit with his car?',
+        choices: ["A: Angela", "B: Kelly", "C: Oscar", "D: Meredith"],
         answer: "D"
     },
     {
-        question: "How many molecules of oxygen does ozone have?",
-        choices: ["A: J", "B: L", "C: K", "D: O"],
-        answer: "C"
+        question: "Which mammal has no vocal cords?",
+        choices: ["A: Pig", "B: Elephant", "C: Octopus", "D: Giraffe"],
+        answer: "D"
     },
     {
         question: "Which planet has the most gravity?",
@@ -30,34 +30,119 @@ var triviaQuestions = [{
         question: "In which body part can you find the femur?",
         choices: ["A: Leg", "B: Arm", "C: Back", "D: Stomach"],
         answer: "A"
+    },
+    {
+        question: "Which country invented tea?",
+        choices: ["A: America", "B: China", "C: Germany", "D: Greece"],
+        answer: "B"
+    },
+    {
+        question: "How many Lord of the Rings films are there?",
+        choices: ["A: 1", "B: 4", "C: 3", "D: 7"],
+        answer: "C"
+    },
+    {
+        question: "In what year was the first episode of South Park aired?",
+        choices: ["A: 1997", "B: 1990", "C: 1994", "D: 2000"],
+        answer: "A"
     }
 ]
+var i = 0;
+var triviaQuestion = triviaQuestions[i];
+var time = 10;
+var timer = setInterval(function gameTimer() {
+    time -= 1;
+    $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+    if (time <= 0) {
+        nextQuestion();
+    } else if (time <= 1) {
+        $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
 
-var triviaQuestion = triviaQuestions[Math.floor(Math.random() * triviaQuestions.length)];
+    }
+}, 1000);
+var numberofQuestions = triviaQuestions.length;
+var correctQuestions = 0;
 
 function playGame() {
-    $('#question').append(triviaQuestion.question)
-    triviaQuestion.choices.forEach(function (choice) {
-        $(`<div id="${choice.charAt(0)}" class="choices">${choice}</div>`).appendTo('#choices').click(function () {
-            if (choice.charAt(0) == triviaQuestion.answer) {
-                alert('Correct!')
-            } else {
-                console.log('Incorrect')
-                $(`#${triviaQuestion.answer}`).css('background-color', 'red')
-            }
+    if (i === triviaQuestions.length) {
+        clearInterval(timer);
+        $('#timer').css("display", "none");
+        $('#totalscore').css("display", "block").append(`<h1>YOU SCORED: ${correctQuestions}/${numberofQuestions}</h1>`)
+        if (correctQuestions <= 6) {
+            var failQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=failed";
+            $.ajax(failQueryURL).then(function (response) {
+                var failImageUrl = response.data.image_original_url;
+                var failImage = $("<img>");
+                failImage.attr("src", failImageUrl);
+                failImage.attr("alt", "failed trivia image");
+                $("#totalscore").append(failImage);
+            });
+        } else {
+            var congratsQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=congrats";
+            $.ajax(congratsQueryURL).then(function (response) {
+                var congratsImageUrl = response.data.image_original_url;
+                var congratsImage = $("<img>");
+                congratsImage.attr("src", congratsImageUrl);
+                congratsImage.attr("alt", "congrats trivia image");
+                $("#totalscore").append(congratsImage);
+            });
+        }
+    } else {
+        $('#question').append(`<h2>${triviaQuestion.question}</h2>`)
+        triviaQuestion.choices.forEach(function (choice) {
+            $(`<div id="${choice.charAt(0)}" class="choices"><h3>${choice}</h3></div>`).appendTo('#choices').one("click", function () {
+                if (choice.charAt(0) == triviaQuestion.answer) {
+                    $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
+                    var correctQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=happydance";
+                    $.ajax(correctQueryURL).then(function (response) {
+                        var correctImageUrl = response.data.fixed_height_small_url;
+                        var correctImage = $("<img>");
+                        correctImage.attr("src", correctImageUrl);
+                        correctImage.attr("alt", "correct answer image");
+                        $("#correctimage").html(correctImage);
+                        $("#correct").css("display", "block");
+                    });
+                    $('.choices').off();
+                    correctQuestions += 1;
+                    setTimeout(function () {
+                        nextQuestion();
+                    }, 2000);
+                } else {
+                    $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
+                    var incorrectQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=disappointed";
+                    $.ajax(incorrectQueryURL).then(function (response) {
+                        var incorrectImageUrl = response.data.fixed_height_small_url;
+                        var incorrectImage = $("<img>");
+                        incorrectImage.attr("src", incorrectImageUrl);
+                        incorrectImage.attr("alt", "incorrect answer image");
+                        $("#incorrectimage").append(incorrectImage);
+                        $("#incorrect").css("display", "block");
+                    });
+                    $('.choices').off();
+                    setTimeout(function () {
+                        nextQuestion();
+                    }, 2000);
+                }
+            });
         });
-    });
+    }
 }
 
 function nextQuestion() {
-    $('#next-question').click(function () {
-        triviaQuestion = triviaQuestions[Math.floor(Math.random() * triviaQuestions.length)];
-        console.log(triviaQuestion);
-        $('#question').html("");
-        $('#choices').html("");
+    $('#question').html("");
+    $('#choices').html("");
+    $('#correctimage').html("");
+    $('#incorrectimage').html("");
+    $("#correct").css("display", "none");
+    $("#incorrect").css("display", "none");
+    i += 1;
+    triviaQuestion = triviaQuestions[i];
+    time = 10;
+    $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+    setTimeout(function () {
         playGame();
-    });
+    }, 1);
 };
 
-nextQuestion();
 playGame();
+// $('#totalscore').append(`<h1>YOU SCORED: ${correctQuestions}/${numberofQuestions}</h1>`)

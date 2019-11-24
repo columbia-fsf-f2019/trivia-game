@@ -6,11 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Trivia Game</title>
     <link rel="stylesheet" href="assets/css/style.css" class="ref" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <div class="row" id="question"></div>
-    <div class="row" id="choices"></div>
-    <button id="next-question">Next</button>
+    <header>Trivia Game</header>
+    <div class="container-fluid">
+      <div class="col-12" id="timer"><h4>Time Remaning: 10 Seconds</h4></div>
+      <div class="col-12" id="question"></div>
+      <div class="col-12" id="choices"></div>
+      <div class="col-12" id="correct"><h3>YOU'RE RIGHT!</h3></div>
+      <div class="col-12" id="correctimage"></div>
+      <div class="col-12" id="incorrect"><h3>YOU'RE WRONG!</h3></div>
+      <div class="col-12" id="incorrectimage"></div>
+      <div class="col-12" id="totalscore"></div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/app.js"></script>
   </body>
