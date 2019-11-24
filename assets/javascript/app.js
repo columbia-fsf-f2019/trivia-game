@@ -51,7 +51,6 @@ var i = 0;
 var triviaQuestion = triviaQuestions[i];
 var time = 30;
 var timer;
-
 var numberofQuestions = triviaQuestions.length;
 var correctQuestions = 0;
 
@@ -101,7 +100,7 @@ function playGame() {
                     correctQuestions += 1;
                     setTimeout(function () {
                         nextQuestion();
-                    }, 2000);
+                    }, 3500);
                 } else {
                     $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
                     var incorrectQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=disappointed";
@@ -116,7 +115,7 @@ function playGame() {
                     $('.choices').off();
                     setTimeout(function () {
                         nextQuestion();
-                    }, 2000);
+                    }, 3500);
                 }
             });
         });
@@ -134,9 +133,7 @@ function nextQuestion() {
     triviaQuestion = triviaQuestions[i];
     time = 30;
     $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
-    setTimeout(function () {
-        playGame();
-    }, 1);
+    playGame();
 };
 
 function runTimer() {
