@@ -4,7 +4,7 @@
 body {
     color: whitesmoke !important;
     font-family: Cabin;
-    background-image: url('assets/images/dino.jpg') !important;
+    background-image: url('../images/squiggly.jpg') !important;
     background-color: rgb(255, 162, 115) !important;
 }
 
