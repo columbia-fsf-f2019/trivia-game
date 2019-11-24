@@ -50,21 +50,13 @@ var triviaQuestions = [{
 var i = 0;
 var triviaQuestion = triviaQuestions[i];
 var time = 30;
+var timer;
 
 var numberofQuestions = triviaQuestions.length;
 var correctQuestions = 0;
 
 function playGame() {
-    var timer = setInterval(function gameTimer() {
-        time -= 1;
-        $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
-        if (time <= 0) {
-            nextQuestion();
-        } else if (time <= 1) {
-            $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
-
-        }
-    }, 1000);
+    runTimer();
     $('#startGame').css('display', 'none');
     if (i === triviaQuestions.length) {
         clearInterval(timer);
@@ -145,6 +137,21 @@ function nextQuestion() {
     setTimeout(function () {
         playGame();
     }, 1);
+};
+
+function runTimer() {
+    clearInterval(timer);
+    timer = setInterval(function gameTimer() {
+        time -= 1;
+        $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+        if (time <= 0) {
+            nextQuestion();
+        } else if (time <= 1) {
+            $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
+
+        }
+
+    }, 1000);
 };
 
 $('#start').click(function () {
