@@ -146,4 +146,3 @@ function nextQuestion() {
 };
 
 playGame();
-// $('#totalscore').append(`<h1>YOU SCORED: ${correctQuestions}/${numberofQuestions}</h1>`)
