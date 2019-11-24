@@ -45,12 +45,18 @@ function render() {
     }
 
     function decrement() {
-      $(".timer").html("<h1>" + time + "</h1>");
+      $(".timer").html(`<h2>Time Remaining ${time} Seconds</h2>`);
       time--;
       if (time === 0) {
         clearInterval(intervalId);
         clear();
-        $(".reaction").text("TIME IS UP!");
+        var alert = $("<h3>").text("TIME IS UP!");
+        $(".reaction").append(alert);
+        var idx = questions[i].correctAsw;
+        var words = $("<h4>").text(
+          `The Correct Answer was: ${questions[i][idx]}.`
+        );
+        $(".reaction").append(words);
         setTimeout(clear, 5000);
         setTimeout(render, 5000);
         noNum++;
@@ -61,39 +67,21 @@ function render() {
     timer();
     var stem = $("<h3>").text(questions[i].question);
     $(".questions").append(stem);
-    var choices = [];
-    var choiceA = $("<button>")
-      .addClass("choice")
-      .attr("type", "A")
-      .text(questions[i].A);
-    choices.push(choiceA);
-    var choiceB = $("<button>")
-      .addClass("choice")
-      .attr("type", "B")
-      .text(questions[i].B);
-    choices.push(choiceB);
-    var choiceC = $("<button>")
-      .addClass("choice")
-      .attr("type", "C")
-      .text(questions[i].C);
-    choices.push(choiceC);
-    var choiceD = $("<button>")
-      .addClass("choice")
-      .attr("type", "D")
-      .text(questions[i].D);
-    choices.push(choiceD);
-    console.log(choices);
+    var choices = ["A", "B", "C", "D"];
     for (var j = 0; j < choices.length; j++) {
-      var choiceLine = $("<h4>").append(choices[j]);
+      var choice = $("<button>")
+        .addClass("choice")
+        .attr("type", "A")
+        .text(questions[i][choices[j]]);
+      var choiceLine = $("<h4>").append(choice);
       $(".questions").append(choiceLine);
     }
-
     $("button.choice").on("click", function() {
       var choice = $(this).attr("type");
       if (choice === questions[i].correctAsw) {
         clearInterval(intervalId);
         clear();
-        $(".reaction").text("YOU ARE CORRECT!");
+        $(".reaction").text("CORRECT!");
         correctNum++;
         time = 20;
         i++;
@@ -102,7 +90,13 @@ function render() {
       } else {
         clearInterval(intervalId);
         clear();
-        $(".reaction").text("YOU ARE WRONG!");
+        var alert = $("<h3>").text("NOPE!");
+        $(".reaction").append(alert);
+        var idx = questions[i].correctAsw;
+        var words = $("<h4>").text(
+          `The Correct Answer was: ${questions[i][idx]}.`
+        );
+        $(".reaction").append(words);
         wrongNum++;
         time = 20;
         i++;
