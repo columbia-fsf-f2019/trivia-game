@@ -7,7 +7,7 @@ var triviaQuestions = [{
         choices: ["A: 6", "B: 2", "C: 5", "D: 1"],
         answer: "A"
     }, {
-        question: 'In the TV Show "The Office" which employee did Michael Scott hit with his car?',
+        question: "In the TV Show 'The Office' which employee did Michael Scott hit with his car?",
         choices: ["A: Angela", "B: Kelly", "C: Oscar", "D: Meredith"],
         answer: "D"
     },
@@ -46,21 +46,50 @@ var triviaQuestions = [{
         choices: ["A: 1997", "B: 1990", "C: 1994", "D: 2000"],
         answer: "A"
     }
-]
+];
 var i = 0;
-var triviaQuestion = triviaQuestions[i];
+var triviaQuestion = triviaQuestions[parseInt(i)];
 var time = 30;
 var timer;
 var numberofQuestions = triviaQuestions.length;
 var correctQuestions = 0;
 
+function runTimer() {
+    clearInterval(timer);
+    timer = setInterval(function gameTimer() {
+        time -= 1;
+        $("#timer").html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+        if (time <= 0) {
+            nextQuestion();
+        } else if (time <= 1) {
+            $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
+
+        }
+
+    }, 1000);
+}
+
+function nextQuestion() {
+    $("#question").html("");
+    $("#choices").html("");
+    $("#correctimage").html("");
+    $("#incorrectimage").html("");
+    $("#correct").css("display", "none");
+    $("#incorrect").css("display", "none");
+    i += 1;
+    triviaQuestion = triviaQuestions[parseInt(i)];
+    time = 30;
+    $("#timer").html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+    playGame();
+};
+
 function playGame() {
     runTimer();
-    $('#startGame').css('display', 'none');
+    $("#startGame").css("display", "none");
     if (i === triviaQuestions.length) {
         clearInterval(timer);
-        $('#timer').css("display", "none");
-        $('#totalscore').css("display", "block").append(`<h1>YOU SCORED: ${correctQuestions}/${numberofQuestions}</h1>`)
+        $("#timer").css("display", "none");
+        $("#totalscore").css("display", "block").append(`<h1>YOU SCORED: ${correctQuestions}/${numberofQuestions}</h1>`)
         if (correctQuestions <= 6) {
             var failQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=failed";
             $.ajax(failQueryURL).then(function (response) {
@@ -81,14 +110,13 @@ function playGame() {
             });
         }
     } else {
-        $('#question').append(`<h2>${triviaQuestion.question}</h2>`)
+        $("#question").append(`<h2>${triviaQuestion.question}</h2>`)
         triviaQuestion.choices.forEach(function (choice) {
-            $(`<div id="${choice.charAt(0)}" class="choices"><h3>${choice}</h3></div>`).appendTo('#choices').one("click", function () {
-                if (choice.charAt(0) == triviaQuestion.answer) {
+            $(`<div id="${choice.charAt(0)}" class="choices"><h3>${choice}</h3></div>`).appendTo("#choices").one("click", function () {
+                if (choice.charAt(0) === triviaQuestion.answer) {
                     $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
                     var correctQueryURL = "https://api.giphy.com/v1/gifs/random?api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&tag=happydance";
                     $.ajax(correctQueryURL).then(function (response) {
-                        console.log(response);
                         var correctImageUrl = response.data.fixed_width_small_url;
                         var correctImage = $("<img>");
                         correctImage.attr("src", correctImageUrl);
@@ -96,7 +124,7 @@ function playGame() {
                         $("#correctimage").html(correctImage);
                         $("#correct").css("display", "block");
                     });
-                    $('.choices').off();
+                    $(".choices").off();
                     correctQuestions += 1;
                     setTimeout(function () {
                         nextQuestion();
@@ -112,7 +140,7 @@ function playGame() {
                         $("#incorrectimage").append(incorrectImage);
                         $("#incorrect").css("display", "block");
                     });
-                    $('.choices').off();
+                    $(".choices").off();
                     setTimeout(function () {
                         nextQuestion();
                     }, 3500);
@@ -122,36 +150,8 @@ function playGame() {
     }
 }
 
-function nextQuestion() {
-    $('#question').html("");
-    $('#choices').html("");
-    $('#correctimage').html("");
-    $('#incorrectimage').html("");
-    $("#correct").css("display", "none");
-    $("#incorrect").css("display", "none");
-    i += 1;
-    triviaQuestion = triviaQuestions[i];
-    time = 30;
-    $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
-    playGame();
-};
 
-function runTimer() {
-    clearInterval(timer);
-    timer = setInterval(function gameTimer() {
-        time -= 1;
-        $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
-        if (time <= 0) {
-            nextQuestion();
-        } else if (time <= 1) {
-            $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
-
-        }
-
-    }, 1000);
-};
-
-$('#start').click(function () {
-    $('#playGame').css('display', 'block');
+$("#start").click(function () {
+    $("#playGame").css("display", "block");
     playGame();
 });
