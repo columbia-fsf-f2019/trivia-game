@@ -1,4 +1,5 @@
 // Questions object
+// alert("this is a test!")
 
 var questions = [
   {
@@ -67,8 +68,8 @@ var questions = [
       "Calistoga",
       "Los Carneros",
       "Rutherford",
-      "Stags Leap District",
-      "Sonoma"
+      "Stags Leap",
+      "Sonoma Valley"
     ],
     answer: "Rutherford"
   },
@@ -104,3 +105,77 @@ var questions = [
     answer: "October"
   }
 ];
+
+// setup for interval timer beginning with variables
+
+var countdown;
+
+var gameOutcome = {
+  correct: 0,
+  incorrect: 0,
+  interval: 180,
+
+  clock: function() {
+    gameOutcome.interval--;
+    $("#counter").html(gameOutcome.interval);
+    if (gameOutcome.interval === 0) {
+      console.log("Game Over");
+      gameOutcome.done();
+    }
+  },
+
+  start: function() {
+    countdown = setInterval(gameOutcome.clock, 1000);
+
+    $("#question-box").prepend(
+      "<h3>Time Remaining: <span id='counter'>180</span>Seconds</h3>"
+    );
+    $("#start").remove();
+
+    for (var i = 0; i < questions.length; i++) {
+      card.append("<h2>" + questions[i].question + "</h2>");
+      for (var j = 0; j < questions[i].choices.length; j++) {
+        card.append(
+          "<input type='radio' name='question-" +
+            i +
+            "' value='" +
+            questions[i].choices[j] +
+            "''>" +
+            questions[i].choices[j]
+        );
+      }
+    }
+    card.append("<button id='done'>Done</button>");
+  },
+
+  done: function() {
+    var inputs = card.children("input:checked");
+    for (var i = 0; i < inputs.length; i++) {
+      if ($(inputs[i]).val() === questions[i].answer) {
+        gameOutcome.correct++;
+      } else {
+        gameOutcome.incorrect++;
+      }
+    }
+    this.result();
+  },
+
+  result: function() {
+    clearInterval(countdown);
+    $("#question-box h2").remove();
+
+    card.html("<h2>Done!</h2>");
+    card.append("<h3>Correct Answers: " + this.correct + "</h3>");
+    card.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
+  }
+};
+
+// below are click handlers for when game start and done buttons are clicked
+
+$(document).on("click", "#start", function() {
+  gameOutcome.start();
+});
+
+$(document).on("click", "#done", function() {
+  gameOutcome.done();
+});
