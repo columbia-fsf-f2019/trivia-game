@@ -10,6 +10,13 @@ body {
 img {
   height: 200px;
   width: 200px;
+  margin: 15px;
+
+}
+
+#container {
+  align-content: center;
+  text-align: center;
 }
 
 #question-box {
@@ -87,46 +94,55 @@ h4 {
   font-size: 25px;
 }
 
-#one {
+#image-header {
+
+  margin-top: 30px;
+  display: inline;
+
+}
+
+/* #one {
   margin-left: 20px;
   margin-top: 40px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 #seven {
   margin-right: 30px;
-}
+} */
 
-#six {
+/* #six { */
   /* margin-left: 20px;
   margin-bottom: 100px;
   margin-top: 40px;  */
-  /* float: right; */
+
+  /* float: right;
   margin-right: 20px;
   margin-top: 40px;
-  margin-left: 20px;
-}
+  margin-left: 30px;
+} */
 
-#five {
+/* #five {
   float: right;
   margin-right: 40px;
   margin-top: 40px;
-}
+} */
 
-#four {
+/* #four {
   float: right;
   margin-right: 40px;
   margin-top: 40px;
-}
+} */
 
-#three {
+/* #three {
   clear: both;
   margin-right: 30px;
   margin-top: 40px;
-}
+} */
 
-#two {
+/* #two {
   float: right;
   margin-right: 20px;
-  margin-top: 40px;
+  margin-top: 40px; */
+
   /* clear: right; */
 }
