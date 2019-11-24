@@ -23,7 +23,7 @@ var triviaQuestions = [{
     },
     {
         question: "Which country produces the most coffee in the world?",
-        choices: ["A: Columbia", "B: Mexico", "C: Brazil", "D: Chile"],
+        choices: ["A: Colombia", "B: Mexico", "C: Brazil", "D: Chile"],
         answer: "C"
     },
     {
