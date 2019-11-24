@@ -50,20 +50,22 @@ var triviaQuestions = [{
 var i = 0;
 var triviaQuestion = triviaQuestions[i];
 var time = 30;
-var timer = setInterval(function gameTimer() {
-    time -= 1;
-    $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
-    if (time <= 0) {
-        nextQuestion();
-    } else if (time <= 1) {
-        $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
 
-    }
-}, 1000);
 var numberofQuestions = triviaQuestions.length;
 var correctQuestions = 0;
 
 function playGame() {
+    var timer = setInterval(function gameTimer() {
+        time -= 1;
+        $('#timer').html(`<h4>Time Remaning: ${time} Seconds</h4>`);
+        if (time <= 0) {
+            nextQuestion();
+        } else if (time <= 1) {
+            $(`#${triviaQuestion.answer}`).addClass("correctAnswer");
+
+        }
+    }, 1000);
+    $('#startGame').css('display', 'none');
     if (i === triviaQuestions.length) {
         clearInterval(timer);
         $('#timer').css("display", "none");
@@ -145,4 +147,7 @@ function nextQuestion() {
     }, 1);
 };
 
-playGame();
+$('#start').click(function () {
+    $('#playGame').css('display', 'block');
+    playGame();
+});

@@ -3,7 +3,7 @@
 
 body {
     color: whitesmoke !important;
-    font-family: cabin;
+    font-family: Cabin;
     background-image: url(/Users/pamelavasquez/bootcamp/trivia-game/assets/images/squiggly.jpg);
 }
 
@@ -27,6 +27,38 @@ header {
     font-family: Bangers;
     background-color: #EBF1FF;
     box-shadow: 2px 2px #888888;
+}
+
+#startGame {
+    height: 300px;
+    padding: 100px 30px;
+}
+
+#start {
+    background-color: whitesmoke;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+#start>h2 {
+    padding: 10px;
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    margin: 0;
+}
+
+#start:hover {
+    background-color: #FF9C6B;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+}
+
+#playGame {
+    display: none;
 }
 
 .correctAnswer {
