@@ -24,6 +24,11 @@ var questions = [
     correctAsw: "B"
   }
 ];
+var imgUrl = [
+  "assets/images/hp_gryffindor.jpg",
+  "assets/images/hp_quidditch.png",
+  "assets/images/hp_fluffy.png"
+];
 var time = 20;
 var intervalId;
 var correctNum = 0;
@@ -57,6 +62,8 @@ function render() {
           `The Correct Answer was: ${questions[i][idx]}.`
         );
         $(".reaction").append(words);
+        var img = $("<img>").attr("src", imgUrl[i]);
+        $(".reaction").append(img);
         setTimeout(clear, 5000);
         setTimeout(render, 5000);
         noNum++;
@@ -81,7 +88,10 @@ function render() {
       if (choice === questions[i].correctAsw) {
         clearInterval(intervalId);
         clear();
-        $(".reaction").text("CORRECT!");
+        var words = $("<h4>").text("CORRECT!");
+        $(".reaction").append(words);
+        var img = $("<img>").attr("src", imgUrl[i]);
+        $(".reaction").append(img);
         correctNum++;
         time = 20;
         i++;
@@ -97,6 +107,8 @@ function render() {
           `The Correct Answer was: ${questions[i][idx]}.`
         );
         $(".reaction").append(words);
+        var img = $("<img>").attr("src", imgUrl[i]);
+        $(".reaction").append(img);
         wrongNum++;
         time = 20;
         i++;
