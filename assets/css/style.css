@@ -31,10 +31,21 @@ img {
   height: 100px;
   width: 200px;
   background-color: chocolate;
+  border: 2px solid blue;
   color: #ffff;
   font-size: xx-large;
   padding: 20px;
   margin: 100px;
+  cursor: pointer;
+}
+
+#start:hover {
+  background: plum;
+  border: 2px solid blue;
+}
+#done:hover {
+  background: plum;
+  border: 2px solid blue;
 }
 
 #done {
@@ -45,9 +56,10 @@ img {
   font-size: xx-large;
   padding: 20px;
   margin: 100px;
-  border: solid darkslategrey 2px;
-  float: left;
-  clear: both;
+  border: solid blue 2px;
+  cursor: pointer;
+  float: right;
+  /* clear: both; */
 }
 
 /* #buttons {
@@ -75,9 +87,6 @@ h4 {
   font-size: 25px;
 }
 
-h6 {
-  color: darkcyan;
-}
 
 #one {
   margin-left: 20px;

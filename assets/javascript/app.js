@@ -1,6 +1,8 @@
-// Questions object
+
 // alert("this is a test!")
-// $("#start").on("click", Function()(console.log("I'm clicked!")));
+
+// for the record, I researched and made up all these questions!! Wine is a passion, loads of fun!
+// Questions array / object
 
 var questions = [
   {
@@ -117,6 +119,8 @@ var gameOutcome = {
   incorrect: 0,
   interval: 180,
 
+//   this function decrements interval starting from 180 seconds
+
   clock: function() {
     gameOutcome.interval--;
     $("#counter").html(gameOutcome.interval);
@@ -130,9 +134,11 @@ var gameOutcome = {
     countdown = setInterval(gameOutcome.clock, 1000);
 
     $("#question-box").prepend(
-      "<h3>Time Remaining: <span id='counter'>12</span> Seconds</h3>"
+      "<h3>Time Remaining: <span id='counter'>180</span> Seconds</h3>"
     );
     $("#start").remove();
+
+    // this loops through all the questions in questions array object
 
     for (var i = 0; i < questions.length; i++) {
       box.append("<h4>" + questions[i].question + "</h4>");
@@ -147,8 +153,11 @@ var gameOutcome = {
         );
       }
     }
+    // this displays done box to click when completed
     box.append("<start id='done'>Done</start>");
   },
+
+//   below is the game logic if certain conditions are met - or - else
 
   done: function() {
     var inputs = box.children("input:checked");
@@ -165,6 +174,8 @@ var gameOutcome = {
   result: function() {
     clearInterval(countdown);
     $("#question-box h4").remove();
+
+    // this displays the results of the quiz
 
     box.html("<h1>Done!</h1>");
     box.append("<h2>Correct Answers: " + this.correct + "</h2>");
