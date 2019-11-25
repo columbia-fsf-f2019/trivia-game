@@ -6,6 +6,18 @@ body {
   background-image: url("../images/wood-2.png");
 }
 
+/* utilizing flex-container class to try to align images along the top */
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.flex-container > div {
+  text-align: center;
+}
+
 img {
   height: 200px;
   width: 200px;
@@ -13,10 +25,10 @@ img {
   /* display: inline; */
 }
 
-span #images-header {
+/* span #images-header {
   width: 100%;
   display: inline;
-}
+} */
 
 /* #container {
   text-align: justify;
