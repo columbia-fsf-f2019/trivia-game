@@ -42,10 +42,13 @@ img {
 } */
 
 #question-box {
-  height: 900px;
+  height: 1200px;
   width: 900px;
   background-color: maroon;
-  /* margin: 150px 150px 100px 300px; */
+  /* margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 40px; */
+  margin: 50px;
   text-align: center;
   padding-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
@@ -79,17 +82,16 @@ img {
 }
 
 #done {
-  height: 100px;
-  width: 200px;
+  height: 40px;
+  width: 100px;
   background-color: chocolate;
   color: #ffff;
-  font-size: xx-large;
+  font-size: large;
   padding: 20px;
-  margin: 100px;
+  margin-bottom: 30px;
   border: solid blue 2px;
   cursor: pointer;
-  float: right;
-  /* clear: both; */
+
 }
 
 /* #buttons {
