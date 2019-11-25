@@ -11,7 +11,7 @@ body {
 .flex-container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 .flex-container > div {
@@ -35,11 +35,11 @@ img {
   display: inline-block;
 } */
 
-#container:after {
+/* #container:after {
   content: "";
   width: 100%;
   display: inline-block;
-}
+} */
 
 #question-box {
   height: 900px;
