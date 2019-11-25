@@ -18,12 +18,16 @@ img {
   display: inline;
 }
 
-/* #container { */
-/* align-content: center;
-  text-align: center; */
-/* clear: both; */
+#container {
+  text-align: justify;
+  display: inline-block;
+}
 
-/* } */
+#container:after {
+  content: "";
+  width: 100%;
+  display: inline-block;
+}
 
 #question-box {
   height: 1250px;

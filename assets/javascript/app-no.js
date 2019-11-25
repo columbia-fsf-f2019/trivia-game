@@ -1,4 +1,13 @@
-$("#start").on("click", start);
+$("#start").on("click", function() {;
+  $("#start").remove();
+for(var i=0; i< questions.length); i++) {
+  $("#question-box").append("<h3"> + questions[i].question + "</h3>");
+for(var j=0; j<questions[i].answers.length; j++){
+  $("#question-box").append("<input type= "radio" name="question - +i+"value=")
+}
+}
+
+})
 
 document.getElementById("start").innerHTML = 003 + ":" + 20;
 startTimer();

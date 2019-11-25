@@ -1,7 +1,7 @@
 // alert("this is a test!")
 
 // for the record, I researched and made up all these questions!! Wine is a passion, loads of fun!
-// Questions array / object
+// Questions array containing 11 objects (made up of question, choices, and answer)
 
 var questions = [
   {
@@ -169,6 +169,7 @@ var gameOutcome = {
     }
     this.result();
   },
+  // prints outcome of game
 
   result: function() {
     clearInterval(countdown);
@@ -179,7 +180,11 @@ var gameOutcome = {
     box.html("<h1>Well Done You!!</h1>");
     box.append("<h2>Correct Answers: " + this.correct + "</h2>");
     box.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
-    // box.append("<h2>Unanswered Questions: " + this.incorrect + "</h2>");
+    box.append(
+      "<h2>Unanswered Questions: " +
+        (questions.length - (this.incorrect + this.correct)) +
+        "</h2>"
+    );
   }
 };
 
