@@ -4,34 +4,40 @@
 
 body {
   background-image: url("../images/wood-2.png");
-  /* background-image: url("../images/tree_bark.png"); */
+
 }
 
 img {
   height: 200px;
   width: 200px;
   margin: 15px;
-
 }
 
-#container {
-  align-content: center;
-  text-align: center;
+#image-header {
+  width: 100%;
 }
+
+/* #container { */
+/* align-content: center;
+  text-align: center; */
+/* clear: both; */
+
+/* } */
 
 #question-box {
   height: 1250px;
   width: 1050px;
   background-color: maroon;
-  margin-left: 250px;
+  margin: 150px 200px 100px 200px;
   text-align: center;
   padding-top: 30px;
   font-family: Arial, Helvetica, sans-serif;
   opacity: 0.6;
   color: cornsilk;
   border: solid white 2px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   line-height: 1.75;
+  /* display: inline; */
 }
 
 #start {
@@ -42,7 +48,7 @@ img {
   color: #ffff;
   font-size: xx-large;
   padding: 20px;
-  margin: 100px;
+  margin: 50px;
   cursor: pointer;
 }
 
@@ -82,11 +88,11 @@ img {
 h1 {
   font-stretch: extra-expanded;
   font-size: xx-large;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: yellow;
 }
-h2 {
-  margin-bottom: 25px;
-  font-size: 35px;
-}
+
 
 h4 {
   color: cornsilk;
@@ -94,12 +100,19 @@ h4 {
   font-size: 25px;
 }
 
-#image-header {
 
-  margin-top: 30px;
-  display: inline;
-
+h2 {
+  color: yellow;
 }
+
+p {
+  font-size: x-large;
+  color: yellow;
+}
+
+/* #image-header {
+  display: inline;
+} */
 
 /* #one {
   margin-left: 20px;
@@ -111,11 +124,11 @@ h4 {
 } */
 
 /* #six { */
-  /* margin-left: 20px;
+/* margin-left: 20px;
   margin-bottom: 100px;
   margin-top: 40px;  */
 
-  /* float: right;
+/* float: right;
   margin-right: 20px;
   margin-top: 40px;
   margin-left: 30px;
@@ -144,5 +157,5 @@ h4 {
   margin-right: 20px;
   margin-top: 40px; */
 
-  /* clear: right; */
-}
+/* clear: right; */
+/* } */

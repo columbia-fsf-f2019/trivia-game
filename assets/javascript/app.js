@@ -116,7 +116,6 @@ var countdown;
 var gameOutcome = {
   correct: 0,
   incorrect: 0,
-  unasnwered: 0,
   interval: 180,
 
   //   this function decrements interval starting from 180 seconds
@@ -134,7 +133,7 @@ var gameOutcome = {
     countdown = setInterval(gameOutcome.clock, 1000);
 
     $("#question-box").prepend(
-      "<h3>Time Remaining: <span id='counter'>180</span> Seconds</h3>"
+      "<p>Time Remaining: <span id='counter'>180</span> Seconds</p>"
     );
     $("#start").remove();
 
@@ -177,10 +176,10 @@ var gameOutcome = {
 
     // this displays the results of the quiz
 
-    box.html("<h1>Done!</h1>");
+    box.html("<h1>Well Done You!!</h1>");
     box.append("<h2>Correct Answers: " + this.correct + "</h2>");
     box.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
-    box.append("<h2>Unanswered Questions: " + this.incorrect + "</h2>");
+    // box.append("<h2>Unanswered Questions: " + this.incorrect + "</h2>");
   }
 };
 
