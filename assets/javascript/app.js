@@ -180,12 +180,12 @@ var gameOutcome = {
     // this displays the results of the quiz
 
     box.html("<h1>Well Done You!!</h1>");
-    box.append("<h2>Correct Answers: " + this.correct + "</h2>");
-    box.append("<h2>Incorrect Answers: " + this.incorrect + "</h2>");
+    box.append("<p>Correct Answers: " + this.correct + "</p>");
+    box.append("<p>Incorrect Answers: " + this.incorrect + "</p>");
     box.append(
-      "<h2>Unanswered Questions: " +
+      "<p>Unanswered Questions: " +
         (questions.length - (this.incorrect + this.correct)) +
-        "</h2>"
+        "</p>"
     );
   }
 };
