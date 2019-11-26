@@ -108,17 +108,18 @@ var questions = [
   }
 ];
 
-// setup for interval timer beginning with some global variables
+// setup for interval timer beginning with some global variables - 
 
 var box = $("#question-box");
 var countdown;
 
+// could have made this whole process simpler without the use of writing functions with object notation
 var gameOutcome = {
   correct: 0,
   incorrect: 0,
   interval: 180,
 
-  //   this function decrements interval starting from 180 seconds
+  //   this function decrements interval starting from 180 seconds -
 
   clock: function() {
     gameOutcome.interval--;
@@ -129,11 +130,14 @@ var gameOutcome = {
     }
   },
 
-  //   still working on how/where to call function as to reset the game
+  //   still working on how/where to call function as to reset the game (see lines 140, which empty's box at end and lines 209-211)
 
   start: function() {
     countdown = setInterval(gameOutcome.clock, 1000);
-
+    // "this" is referring to the gameOutcome object (correct & incorrect are properties of the object)
+    this.correct = 0;
+    this.incorrect = 0;
+    $("#question-box").empty();
     $("#question-box").prepend(
       "<p>Time Remaining: <span id='counter'>180</span> Seconds</p>"
     );
@@ -158,7 +162,7 @@ var gameOutcome = {
     box.append("<start id='done'>Done</start>");
   },
 
-  //   below is the game logic if certain conditions are met - or - else
+  //   below is the game logic if certain conditions are met or/else. Done function uses : notation as it is inside object 
 
   done: function() {
     var inputs = box.children("input:checked");
@@ -175,7 +179,6 @@ var gameOutcome = {
 
   result: function() {
     clearInterval(countdown);
-    $("#question-box h4").remove();
 
     // this displays the results of the quiz
 
@@ -187,6 +190,8 @@ var gameOutcome = {
         (questions.length - (this.incorrect + this.correct)) +
         "</p>"
     );
+    // $("#question-box").empty();
+    box.append("<button id='restart'>Restart</button>");
   }
 };
 
@@ -199,3 +204,11 @@ $(document).on("click", "#start", function() {
 $(document).on("click", "#done", function() {
   gameOutcome.done();
 });
+
+$(document).on("click", "#restart", function() {
+  gameOutcome.start();
+});
+
+// below tried to call fct to place start button underneath quiz results
+
+// box.append = $("#start");

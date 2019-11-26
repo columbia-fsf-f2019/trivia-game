@@ -37,7 +37,8 @@ img {
   line-height: 1.75;
 }
 
-#start {
+#start,
+#restart {
   height: 100px;
   width: 200px;
   background-color: chocolate;
@@ -68,6 +69,10 @@ img {
   margin: 50px;
   border: solid blue 2px;
   cursor: pointer;
+  display: block;
+  margin: 50px auto;
+  padding: 3px;
+  
 }
 
 h1 {
