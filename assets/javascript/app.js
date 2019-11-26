@@ -129,6 +129,8 @@ var gameOutcome = {
     }
   },
 
+  //   still working on how/where to call function as to reset the game
+
   start: function() {
     countdown = setInterval(gameOutcome.clock, 1000);
 
