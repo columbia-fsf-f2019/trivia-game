@@ -21,7 +21,9 @@ img {
   height: 200px;
   width: 200px;
   margin: 35px 30px;
+  cursor: pointer;
 }
+
 
 #question-box {
   height: 1200px;
@@ -72,7 +74,6 @@ img {
   display: block;
   margin: 50px auto;
   padding: 3px;
-  
 }
 
 h1 {
