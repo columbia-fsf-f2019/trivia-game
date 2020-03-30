@@ -108,7 +108,7 @@ var questions = [
   }
 ];
 
-// setup for interval timer beginning with some global variables - 
+// setup for interval timer beginning with some global variables -
 
 var box = $("#question-box");
 var countdown;
@@ -162,7 +162,7 @@ var gameOutcome = {
     box.append("<start id='done'>Done</start>");
   },
 
-  //   below is the game logic if certain conditions are met or/else. Done function uses : notation as it is inside object 
+  //   below is the game logic if certain conditions are met or/else. Done function uses : notation as it is inside object
 
   done: function() {
     var inputs = box.children("input:checked");
