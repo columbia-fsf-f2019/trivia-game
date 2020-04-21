@@ -1,6 +1,7 @@
 # Are You A Wine Genius?
 
 ### Trivia Game Overview
+https://lizlevine.github.io/trivia-game
 
 This app was built using JavaScript timers, intervals and jQuery.
 
