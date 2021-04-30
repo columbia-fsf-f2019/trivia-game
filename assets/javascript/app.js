@@ -65,7 +65,7 @@ var questions = [
   },
   {
     question:
-      "Which American appelation is best known for producing a dry and 'dusty' red grape?",
+      "Which California appelation is best known for producing a dry and 'dusty' red grape?",
     choices: [
       "Calistoga",
       "Los Carneros",
