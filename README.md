@@ -13,6 +13,7 @@ User is presented with a timed 10-question multiple choice "test" regarding wine
 
 - JavaScript (timers)
 - jQuery
+- Coolers.co which is one of the best resources for creating customed palettes with Hexadecimal Numbers
 
 ##### User Prompted to Begin
 
