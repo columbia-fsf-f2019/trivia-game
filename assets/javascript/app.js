@@ -53,7 +53,7 @@ var questions = [
   },
   {
     question:
-      "Which legendary French winemaker put Napa Valley 'on-the-map' as a world-class wine producer?",
+      "Which legendary winemaker put Napa Valley 'on-the-map' as a world-class wine producer?",
     choices: [
       "Robert Mondavi",
       "Rodney Strong",
