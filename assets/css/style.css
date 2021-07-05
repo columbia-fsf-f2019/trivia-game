@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/wood-2.png");
+}
+
+/* utilizing flex-container class to try to align images along the top */
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container > div {
+  text-align: center;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  margin: 35px 30px;
+  cursor: pointer;
+}
+
+
+#question-box {
+  height: 1200px;
+  width: 1000px;
+  background-color: maroon;
+  margin: 100px 50px;
+  text-align: center;
+  padding-top: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.6;
+  color: cornsilk;
+  border: solid white 2px;
+  line-height: 1.75;
+}
+
+#start,
+#restart {
+  height: 100px;
+  width: 200px;
+  background-color: chocolate;
+  border: 2px solid blue;
+  color: #ffff;
+  font-size: xx-large;
+  padding: 20px;
+  margin: 50px;
+  cursor: pointer;
+}
+
+#start:hover {
+  background: plum;
+  border: 2px solid blue;
+}
+#done:hover {
+  background: plum;
+  border: 2px solid blue;
+}
+
+#done {
+  height: 40px;
+  width: 100px;
+  background-color: chocolate;
+  color: #ffff;
+  font-size: large;
+  padding: 20px;
+  margin: 50px;
+  border: solid blue 2px;
+  cursor: pointer;
+  display: block;
+  margin: 50px auto;
+  padding: 3px;
+}
+
+h1 {
+  font-stretch: extra-expanded;
+  font-size: xx-large;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: yellow;
+}
+
+h4 {
+  color: cornsilk;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+h2 {
+  color: yellow;
+}
+
+p {
+  font-size: x-large;
+  color: yellow;
+}
